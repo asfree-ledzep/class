@@ -1,0 +1,7 @@
+select	'[' || substr(STUDENT_SSN, 1, 8) 
+       || '******]' 주민번호, STUDENT_NAME 이름
+from 	TB_STUDENT
+where	STUDENT_SSN like '80%' and 
+substr(STUDENT_SSN, 8, 1)='2' and 
+STUDENT_NAME like '김%'
+order by 2;
