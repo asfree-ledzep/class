@@ -1,29 +1,24 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE mapper
-  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
-  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="org.mybatis.example.BlogMapper">
-
-==================================================================
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE configuration
-  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
-  "http://mybatis.org/dtd/mybatis-3-config.dtd">
-<configuration>
-  <environments default="development">
-    <environment id="development">
-      <transactionManager type="JDBC"/>
-      <!-- db 연결 4가지 정보  -->
-      <dataSource type="POOLED">
-        <property name="driver" value="oracle.jdbc.driver.OracleDriver"/>
-        <property name="url" value="jdbc:oracle:thin:@localhost:1521:xe"/>
-        <property name="username" value="scott"/>
-        <property name="password" value="tiger"/>
-      </dataSource>
-    </environment>
-  </environments>
-  <!-- Mapper.xml의 경로 등록 (Mapper.xml파일이 존재해야함 )-->
-  <mappers>
-    <mapper resource="DeptMapper.xml"/>
-  </mappers>
-</configuration>
+static SqlSessionFactory sqlSessionFactory= null;
+	static {//초기화
+		String resource = "Configuration.xml";  //수정이 필요한 유일한 부분 
+		//Configuration.xml의 경로가 바뀔시에 수정이 필요 
+		InputStream inputStream= null;
+		try {
+			inputStream = Resources.getResourceAsStream(resource);
+			System.out.println("configuration.xml 로딩 성공 ");
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			//파일의 경로가 틀린경우 ioException발생 
+			e.printStackTrace();
+		}
+		 sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
+		 //DriverManager와 비슷한 객체 
+	}//end static
+	
+	//SqlSession 반환
+	public static SqlSession getSqlSession() {//
+		//    SqlSession session=    MySqlSessionFactory.getSqlSession();
+		SqlSession session = sqlSessionFactory.openSession();
+		//getConnection의 Connection과 비슷한 기능의 SqlSession객체 생성 리턴 
+		return session;
+	}
