@@ -1,6 +1,4 @@
-<%@page import="java.util.List"%>
-<%@page import="com.dto.EmpDTO"%>
-<%@page import="java.util.ArrayList"%>
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -10,60 +8,58 @@
 <title>사원관리</title>
 </head>
 <body>
-	<b>[ 사원 목록 ]</b>
-	<hr></hr>
-	<%
+<%
 
-	%>
-	<table border="1">
+%>
+<b>[ 사원 정보 보기 ]</b>
+<div style="color:red"> 직업(job)과 월급(sal) 만 수정 가능하도록 구현한다.</div>
+	<form action="EmpUpdateServlet" method="post">
+	<!-- //////////////////////////////////////////////////////////  -->
+	  <input type="hidden" name="empno" value="" ><!-- hidden주의  -->
+ 		<table border="1">
+			<tr>
+				<th>사원번호</th>
+				<td>&nbsp;<%=empno %></input>
+				</td>
+			</tr>
+			<tr>
+				<th>사원이름</th>
+				<td>&nbsp;<%=ename %>
+				</td>
+			</tr>
+			<tr>
+				<th>직업</th>
+				<td>
+				<select name="job">
+				  <option value="CLERK"  selected >CLERK</option>
+				 
+				</select>
+				</td>
+			</tr>
+			<tr>
+				<th>관리자</th>
+				<td>&nbsp;
+				</td>
+			</tr>
+			<tr>
+				<th>입사일</th>
+				<td>&nbsp;
+				</td>
+			</tr>
+			<tr>
+				<th>월급</th>
+				<td><input type="text" name="sal" value="" ></input>
+				</td>
+			</tr>
+			<tr>
+				<th colspan="2">
+					<input type="submit" value="사원수정"></input>
+				</th>				
+			</tr>
 
-		<!-- 검색기능 -->
-		<tr>
-			<td colspan="5">
-				<form action="EmpSearchServlet">
-					<select name="searchName">
-						<option value="hiredate">입사일(년도만)</option>
-						<option value="ename">이름</option>
-					</select> <input type="text" name="searchValue"> <input
-						type="submit" value="검색">
-				</form>
-			</td>
-		</tr>
-		<!-- 검색기능  -->
-		<!-- 정렬기준 -->
-		<tr>
-			<th>정렬기준</th>
-			<td colspan="4">
-			  <form action="EmpOrderServlet">
-			      월급 높은 순 : <input type="radio" name="order" value="desc" checked="checked" />
-				 월급낮은 순 : <input type="radio" name="order" value="asc" />
-				  <input type="submit" value="정렬">
-               </form>
-			</td>
-		</tr>
-
-		<!-- 정렬기준 -->
-		<tr>
-			<th>사원번호</th>
-			<th>사원이름</th>
-			<th>직업</th>
-			<th>입사일</th>
-			<th>월급</th>
-		</tr>
-		<%
-	
-		%>
-		<tr>
-			<td><a href="><%=empno%></a></td>
-			<td><%=ename%></td>
-			<td><%=job%></td>
-			<td><%=hiredate%></td>
-			<td><%=sal%></td>
-		</tr>
-		<%
-			 //end for
-		%>
-	</table>
-	<a href="">사원등록</a>
+		</table>
+	</form>
+	<a href="">목록보기</a>&nbsp;
+	<a href="">삭제</a>
 </body>
 </html>
