@@ -1,12 +1,69 @@
-create table myproduct
-( prodId varchar2(10) primary key,   --상품 아이디
-  prodName varchar2(20) not null,    --상품명
-  price number(6) not null,          --가격  
-  quantity number(2) not null        --갯수
- );
-  
-  insert into myproduct values ( 'P1' , '냉장고' , 1000, 1);
-  insert into myproduct values ( 'P2' , 'TV' , 2000, 2);
-  insert into myproduct values ( 'P3' , '세탁기' , 700, 2);
-  insert into myproduct values ( 'P4' , '노트북' , 900, 1);
-  commit;
+<%@page import="java.util.List"%>
+<%@page import="com.dto.EmpDTO"%>
+<%@page import="java.util.ArrayList"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>사원관리</title>
+</head>
+<body>
+	<b>[ 사원 목록 ]</b>
+	<hr></hr>
+	<%
+
+	%>
+	<table border="1">
+
+		<!-- 검색기능 -->
+		<tr>
+			<td colspan="5">
+				<form action="EmpSearchServlet">
+					<select name="searchName">
+						<option value="hiredate">입사일(년도만)</option>
+						<option value="ename">이름</option>
+					</select> <input type="text" name="searchValue"> <input
+						type="submit" value="검색">
+				</form>
+			</td>
+		</tr>
+		<!-- 검색기능  -->
+		<!-- 정렬기준 -->
+		<tr>
+			<th>정렬기준</th>
+			<td colspan="4">
+			  <form action="EmpOrderServlet">
+			      월급 높은 순 : <input type="radio" name="order" value="desc" checked="checked" />
+				 월급낮은 순 : <input type="radio" name="order" value="asc" />
+				  <input type="submit" value="정렬">
+               </form>
+			</td>
+		</tr>
+
+		<!-- 정렬기준 -->
+		<tr>
+			<th>사원번호</th>
+			<th>사원이름</th>
+			<th>직업</th>
+			<th>입사일</th>
+			<th>월급</th>
+		</tr>
+		<%
+	
+		%>
+		<tr>
+			<td><a href="><%=empno%></a></td>
+			<td><%=ename%></td>
+			<td><%=job%></td>
+			<td><%=hiredate%></td>
+			<td><%=sal%></td>
+		</tr>
+		<%
+			 //end for
+		%>
+	</table>
+	<a href="">사원등록</a>
+</body>
+</html>
