@@ -1,3 +1,15 @@
+#key=value
+#db 4 information
+oracle.jdbc=oracle.jdbc.driver.OracleDriver
+oracle.url=jdbc:oracle:thin:@localhost:1521:xe
+oracle.userid=scott
+oracle.passwd=tiger
+
+mysql.jdbc=com.mysql.jdbc.Driver
+mysql.url=jdbc:mysql:localhost:3306\orcl
+mysql.userid=scott
+mysql.passwd=tiger
+===============================================
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
