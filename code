@@ -1,26 +1,12 @@
-//1. 
-@Configuration
-public class WebConfig implements WebMvcConfigurer {////////////////////
-	@Override
-	public void addCorsMappings(CorsRegistry registry) {
-	registry.addMapping("/**")
-	.allowedOrigins("*")
-	.allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
-	.allowedHeaders("*")
-	.maxAge(3600);
-	}
-}
-
-
-//2. 
-<resources>
-			<resource>
-			<directory>src/main/resources</directory>
-			</resource>
-			<resource>
-				<directory>src/main/java</directory>
-				<includes>
-					<include>**/*.xml</include>
-				</includes>
-			</resource>
-		</resources>
+version: '3' # 버전
+services:
+  ora11g:
+    container_name: ora11g # 컨테이너 이름
+    image: oracleinanutshell/oracle-xe-11g  # 사용할 이미지 : 새버전
+    environment:
+      TdZ: Asia/Seoul # 타임존
+    ports:
+      - "11521:1521" # 포트 설정
+    volumes:
+      - /home/ubuntu/ora11g:/u01/app/oracle
+# 볼륨 설정 호스트 디렉토리 : 컨테이너 디렉토리
