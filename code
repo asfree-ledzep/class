@@ -1,12 +1,9 @@
-version: '3' # 버전
-services:
-  ora11g:
-    container_name: ora11g # 컨테이너 이름
-    image: oracleinanutshell/oracle-xe-11g  # 사용할 이미지 : 새버전
-    environment:
-      TdZ: Asia/Seoul # 타임존
-    ports:
-      - "11521:1521" # 포트 설정
-    volumes:
-      - /home/ubuntu/ora11g:/u01/app/oracle
-# 볼륨 설정 호스트 디렉토리 : 컨테이너 디렉토리
+
+<role rolename="manager-gui"/>
+  <role rolename="manager-script"/>
+  <role rolename="manager-jmx"/>
+  <role rolename="manager-status"/>
+  <user username="admin" password="admin" 
+roles="manager-gui,manager-script,manager-jmx,manager-status"/>
+  <user username="deployer" password="deployer" roles="manager-script"/>
+<user username="tomcat" password="tomcat" roles="manager-gui"/>
