@@ -1,4 +1,17 @@
-
+		<!--메퍼 누락방지 추가 -->
+		<resources>
+			<resource>
+				<directory>src/main/resources</directory>
+			</resource>
+			<resource>
+				<directory>src/main/java</directory>
+				<includes>
+					<include>**/*.xml</include>
+				</includes>
+			</resource>
+		</resources>
+		<!--메퍼 누락방지 추가 -->
+////////////////////////////////////////////////
 <role rolename="manager-gui"/>
   <role rolename="manager-script"/>
   <role rolename="manager-jmx"/>
