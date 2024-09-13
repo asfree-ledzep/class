@@ -17,3 +17,9 @@
         //true 비동기, false 동기처리
         httpRequest.send(null); //get 방식이면 null 지정
 ========================================================================
+  if (httpRequest.readyState == 4 && httpRequest.status == 200) {
+          console.log("요청성공");
+          var str = httpRequest.responseText;
+          var json = JSON.parse(str);
+          console.log(json);
+==================================================
