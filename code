@@ -3,3 +3,7 @@
 		String url="jdbc:oracle:thin:@localhost:1521:xe";  // localhost, 포트번호, sid만수정
 		String userid ="scott";
 		String passwd ="tiger";
+
+
+var url = 
+        `https://www.kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchDailyBoxOfficeList.json?key=3d430a039fb1bae3fe5f0bc48df64e46&targetDt=${date}`;
