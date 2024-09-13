@@ -4,6 +4,16 @@
 		String userid ="scott";
 		String passwd ="tiger";
 
-
-var url = 
+====================================
+ httpRequest = new XMLHttpRequest();
+        console.log(httpRequest);
+        //응답 response시 처리하는 콜백함수
+        httpRequest.onreadystatechange = responseFun; //상태변화시 마다 호출됨
+        var date = document.getElementById("date").value;
+        //20240302
+        var url = 
         `https://www.kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchDailyBoxOfficeList.json?key=3d430a039fb1bae3fe5f0bc48df64e46&targetDt=${date}`;
+        httpRequest.open("get", url, true);
+        //true 비동기, false 동기처리
+        httpRequest.send(null); //get 방식이면 null 지정
+========================================================================
