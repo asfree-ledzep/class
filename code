@@ -1,25 +1,8 @@
-		//1. 4가지 정보
-		String driver="oracle.jdbc.driver.OracleDriver"; //고정
-		String url="jdbc:oracle:thin:@localhost:1521:xe";  // localhost, 포트번호, sid만수정
-		String userid ="scott";
-		String passwd ="tiger";
+    //방법2: 다른 주소값으로 설정하기 때문에 변경을 인식함
+console.log(rowIndex, colIndex);
 
-====================================
- httpRequest = new XMLHttpRequest();
-        console.log(httpRequest);
-        //응답 response시 처리하는 콜백함수
-        httpRequest.onreadystatechange = responseFun; //상태변화시 마다 호출됨
-        var date = document.getElementById("date").value;
-        //20240302
-        var url = 
-        `https://www.kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchDailyBoxOfficeList.json?key=3d430a039fb1bae3fe5f0bc48df64e46&targetDt=${date}`;
-        httpRequest.open("get", url, true);
-        //true 비동기, false 동기처리
-        httpRequest.send(null); //get 방식이면 null 지정
-========================================================================
-  if (httpRequest.readyState == 4 && httpRequest.status == 200) {
-          console.log("요청성공");
-          var str = httpRequest.responseText;
-          var json = JSON.parse(str);
-          console.log(json);
-==================================================
+    var newGameBoard = [...gameBoard];
+    newGameBoard[rowIndex][colIndex] = "X";
+    setGameBoard(newGameBoard);
+  }
+  console.log("App 호출");
