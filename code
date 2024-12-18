@@ -1,8 +1,0 @@
-    //방법2: 다른 주소값으로 설정하기 때문에 변경을 인식함
-console.log(rowIndex, colIndex);
-
-    var newGameBoard = [...gameBoard];
-    newGameBoard[rowIndex][colIndex] = "X";
-    setGameBoard(newGameBoard);
-  }
-  console.log("App 호출");
