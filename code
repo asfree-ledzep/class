@@ -112,3 +112,4 @@ insert into goods
   values ('B11',	'bottom', '플리츠 스커트 레깅스',	'페미닌한 무드의 플리츠 주름 레깅스', '11800', 'bottom11');
   insert into goods 
   values ('B12',	'bottom', '레이스 미디 스커트',	'여성스러운 레이스 미디 스커트', '11800', 'bottom12');
+commit;
